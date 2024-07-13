@@ -1,6 +1,6 @@
 import { IsNumberString, IsOptional } from 'class-validator';
 
-export class PagnationQueryDTO {
+export class PaginationDTO {
   @IsNumberString(
     { no_symbols: true },
     { message: 'limit shuld be unsigned number string' },

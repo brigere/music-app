@@ -1,13 +1,13 @@
 import { Controller, Get, Param, ParseIntPipe, Query } from '@nestjs/common';
 import { ArtistService } from './artist.service';
-import { PagnationQueryDTO } from './dtos/artist.dto';
+import { PaginationDTO } from 'src/shared/dto';
 
 @Controller('artist')
 export class ArtistController {
   constructor(private readonly artistService: ArtistService) {}
 
   @Get('/')
-  async getAll(@Query() paginationQuery: PagnationQueryDTO) {
+  async getAll(@Query() paginationQuery: PaginationDTO) {
     const { skip, limit } = paginationQuery;
     const artists = await this.artistService.getAll(limit, skip);
 
