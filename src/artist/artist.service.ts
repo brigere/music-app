@@ -14,6 +14,9 @@ export class ArtistService {
     return this.artistRepository.find({
       take: limit || 10,
       skip: skip || 0,
+      relations: {
+        albums: true,
+      },
     });
   }
 
