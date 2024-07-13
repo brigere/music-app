@@ -1,4 +1,4 @@
-import { Controller, Get, Query } from '@nestjs/common';
+import { Controller, Get, Param, ParseIntPipe, Query } from '@nestjs/common';
 import { PaginationDTO } from 'src/shared/dto';
 import { AlbumService } from './album.service';
 
@@ -13,5 +13,10 @@ export class AlbumController {
       pagination.skip,
     );
     return result;
+  }
+
+  @Get('/:id')
+  async getOneById(@Param('id', ParseIntPipe) id: number) {
+    return this.albumService.findById(id);
   }
 }
