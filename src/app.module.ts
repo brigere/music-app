@@ -5,6 +5,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { ArtistModule } from './artist/artist.module';
 import { Artist } from './artist/entities/artist.entity';
 import { AlbumModule } from './album/album.module';
+import { Album } from './album/entities/album.entity';
 
 @Module({
   imports: [
@@ -12,7 +13,7 @@ import { AlbumModule } from './album/album.module';
       type: 'sqlite',
       database: './data/music.db',
       synchronize: false,
-      entities: [Artist],
+      entities: [Artist, Album],
     }),
     ArtistModule,
     AlbumModule,
