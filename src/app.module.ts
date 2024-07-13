@@ -4,6 +4,7 @@ import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ArtistModule } from './artist/artist.module';
 import { Artist } from './artist/entities/artist.entity';
+import { AlbumModule } from './album/album.module';
 
 @Module({
   imports: [
@@ -14,6 +15,7 @@ import { Artist } from './artist/entities/artist.entity';
       entities: [Artist],
     }),
     ArtistModule,
+    AlbumModule,
   ],
   controllers: [AppController],
   providers: [AppService],
