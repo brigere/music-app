@@ -11,7 +11,7 @@ import { Artist } from './artist/entities/artist.entity';
       type: 'sqlite',
       database: './data/music.db',
       synchronize: false,
-      entities: [Artist]
+      entities: [Artist],
     }),
     ArtistModule,
   ],
