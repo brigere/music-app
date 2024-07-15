@@ -12,6 +12,24 @@ export class Track {
   @Column({ name: 'AlbumId', select: false })
   albumId: number;
 
+  @Column({ name: 'MediaTypeId', select: false })
+  mediaTypeId: number;
+
+  @Column({ name: 'GenreId', select: false })
+  genreId: number;
+
+  @Column({ name: 'Composer' })
+  composer: string;
+
+  @Column({ name: 'Milliseconds' })
+  milliseconds: number;
+
+  @Column({ name: 'Bytes' })
+  bytes: number;
+
+  @Column({ name: 'UnitPrice' })
+  unitPrice: number;
+
   @ManyToOne(() => Album, (album) => album.tracks)
   album: Album;
 }
