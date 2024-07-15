@@ -8,6 +8,7 @@ import { Album } from './album/entities/album.entity';
 import { TrackModule } from './track/track.module';
 import { Track } from './track/entity/track.entity';
 import { UserModule } from './user/user.module';
+import { User } from './user/entities/user.entity';
 
 @Module({
   imports: [
@@ -15,7 +16,7 @@ import { UserModule } from './user/user.module';
       type: 'sqlite',
       database: './data/music.db',
       synchronize: false,
-      entities: [Artist, Album, Track],
+      entities: [Artist, Album, Track, User],
     }),
     ArtistModule,
     AlbumModule,
