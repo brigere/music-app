@@ -7,6 +7,7 @@ import { AlbumModule } from './album/album.module';
 import { Album } from './album/entities/album.entity';
 import { TrackModule } from './track/track.module';
 import { Track } from './track/entity/track.entity';
+import { UserModule } from './user/user.module';
 
 @Module({
   imports: [
@@ -19,6 +20,7 @@ import { Track } from './track/entity/track.entity';
     ArtistModule,
     AlbumModule,
     TrackModule,
+    UserModule,
   ],
   providers: [AppService],
 })
