@@ -1,7 +1,9 @@
 import { Controller, Get, Param, ParseIntPipe, Query } from '@nestjs/common';
 import { ArtistService } from './artist.service';
 import { PaginationDTO } from 'src/shared/dto';
+import { ApiTags } from '@nestjs/swagger';
 
+@ApiTags('Artists')
 @Controller('artist')
 export class ArtistController {
   constructor(private readonly artistService: ArtistService) {}

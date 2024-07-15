@@ -1,5 +1,4 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ArtistModule } from './artist/artist.module';
@@ -21,7 +20,6 @@ import { Track } from './track/entity/track.entity';
     AlbumModule,
     TrackModule,
   ],
-  controllers: [AppController],
   providers: [AppService],
 })
 export class AppModule {}
