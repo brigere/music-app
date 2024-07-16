@@ -2,7 +2,7 @@ import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity('users')
 export class User {
-  @PrimaryGeneratedColumn({ name: 'id' })
+  @PrimaryGeneratedColumn({ name: 'Id' })
   id: number;
 
   @Column({ name: 'FirstName' })
@@ -11,12 +11,12 @@ export class User {
   @Column({ name: 'LastName' })
   lastName: string;
 
-  @Column({ name: 'email', unique: true })
+  @Column({ name: 'Email', unique: true })
   email: string;
 
-  @Column({ name: 'password', select: false })
+  @Column({ name: 'Password', select: false })
   password: string;
 
-  @Column({ name: 'role', select: false })
+  @Column({ name: 'Role', select: false })
   role: string;
 }
