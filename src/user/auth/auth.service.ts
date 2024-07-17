@@ -1,11 +1,12 @@
-import { Injectable, UnauthorizedException } from '@nestjs/common';
+import { Inject, Injectable, UnauthorizedException } from '@nestjs/common';
 import { HashingService } from './hashing/hashing.service';
 import { InjectRepository } from '@nestjs/typeorm';
 import { User } from '../entities/user.entity';
 import { Repository } from 'typeorm';
 import { CreateUserDto } from '../dto/create-user.dto';
 import { UserSignInDTO } from '../dto/user-singin.dto';
-import { HttpErrorByCode } from '@nestjs/common/utils/http-error-by-code.util';
+import jwtConfig from 'src/config/jwt.config';
+import { ConfigType } from '@nestjs/config';
 
 @Injectable()
 export class AuthService {
@@ -13,6 +14,8 @@ export class AuthService {
     private readonly hashingService: HashingService,
     @InjectRepository(User)
     private readonly userRepository: Repository<User>,
+    @Inject(jwtConfig.KEY)
+    private readonly jwtConfiguration: ConfigType<typeof jwtConfig>
   ) {}
 
   async singUp(createUserDto: CreateUserDto) {
@@ -58,7 +61,7 @@ export class AuthService {
     );
 
     if (!result) {
-      throw new UnauthorizedException('User or email is incorrect');
+      throw new UnauthorizedException(`User or email is incorrect`);
     }
 
     return true;

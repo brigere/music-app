@@ -9,6 +9,7 @@ import { TrackModule } from './track/track.module';
 import { Track } from './track/entity/track.entity';
 import { UserModule } from './user/user.module';
 import { User } from './user/entities/user.entity';
+import { ConfigModule } from '@nestjs/config';
 
 @Module({
   imports: [
@@ -22,6 +23,9 @@ import { User } from './user/entities/user.entity';
     AlbumModule,
     TrackModule,
     UserModule,
+    ConfigModule.forRoot({
+      envFilePath: '.env'
+    })
   ],
   providers: [AppService],
 })

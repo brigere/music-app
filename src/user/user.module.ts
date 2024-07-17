@@ -7,9 +7,16 @@ import { AuthController } from './auth/auth.controller';
 import { AuthService } from './auth/auth.service';
 import { HashingService } from './auth/hashing/hashing.service';
 import { BcryptService } from './auth/bcrypt/bcrypt.service';
+import { JwtModule } from '@nestjs/jwt';
+import { ConfigModule } from '@nestjs/config';
+import jwtConfig from 'src/config/jwt.config';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([User])],
+  imports: [
+    ConfigModule.forFeature(jwtConfig),
+    JwtModule.registerAsync(jwtConfig.asProvider()),
+    TypeOrmModule.forFeature([User]),
+  ],
   controllers: [UserController, AuthController],
   providers: [
     UserService,
